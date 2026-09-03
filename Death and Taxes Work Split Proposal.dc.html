@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_ds/modernist-8e01b0df-7283-4b3c-9b9b-3ffe8c927e4b/styles.css">
+<script src="_ds/modernist-8e01b0df-7283-4b3c-9b9b-3ffe8c927e4b/_ds_bundle.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { background: #f3f2f2; color: #201e1d; font-family: "Archivo", system-ui, sans-serif; font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  *, *::before, *::after { box-sizing: border-box; }
+  a { color: #ae1800; text-decoration: none; text-underline-offset: 3px; }
+  a:hover { color: #ec3013; text-decoration: underline; }
+  ::selection { background: rgba(236,48,19,0.3); }
+  :focus { outline: none; }
+  :focus-visible { outline: 2px solid #ec3013; outline-offset: 2px; }
+  h1, h2, h3, h4, h5, h6 { font-family: "Archivo", system-ui, sans-serif; font-weight: 800; line-height: 1.12; letter-spacing: -0.015em; margin: 0; }
+  p { margin: 0; }
+</style>
+</helmet>
+<div style="display: grid; grid-template-columns: 300px minmax(0, 1fr); align-items: start; min-height: 100vh">
+
+  <aside style="position: sticky; top: 0; height: 100vh; overflow-y: auto; border-right: 2px solid rgba(32,30,29,0.4); padding: 40px 28px 40px 40px; display: flex; flex-direction: column; gap: 28px">
+    <div>
+      <div style="font-size: 26px; font-weight: 800; letter-spacing: -0.02em; line-height: 1">Zug Zug</div>
+      <div style="font-size: 12px; line-height: 1.4; margin-top: 10px; color: rgba(32,30,29,0.55)">Work Split Proposal<br>Two devs, one Unreal project</div>
+      <div style="display: flex; gap: 6px; margin-top: 14px; flex-wrap: wrap">
+        <span style="font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 6px; background: #201e1d; color: #f3f2f2">Proposal v1</span>
+        <span style="font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 6px; border: 1px solid rgba(32,30,29,0.4)">Internal</span>
+      </div>
+    </div>
+
+    <nav style="display: grid; border-top: 2px solid rgba(32,30,29,0.4)">
+      <a href="#lanes" style="display: grid; grid-template-columns: 26px 1fr; gap: 8px; padding: 9px 4px; font-size: 13px; font-weight: 500; color: #201e1d; border-bottom: 1px solid rgba(32,30,29,0.18)" style-hover="background: rgba(32,30,29,0.07)"><span style="color: rgba(32,30,29,0.45)">—</span><span>The two lanes</span></a>
+      <a href="#branches" style="display: grid; grid-template-columns: 26px 1fr; gap: 8px; padding: 9px 4px; font-size: 13px; font-weight: 500; color: #201e1d; border-bottom: 1px solid rgba(32,30,29,0.18)" style-hover="background: rgba(32,30,29,0.07)"><span style="color: rgba(32,30,29,0.45)">—</span><span>Branch model</span></a>
+      <a href="#gates" style="display: grid; grid-template-columns: 26px 1fr; gap: 8px; padding: 9px 4px; font-size: 13px; font-weight: 500; color: #ae1800; border-bottom: 2px solid rgba(32,30,29,0.4)" style-hover="background: rgba(236,48,19,0.1)"><span style="color: rgba(174,24,0,0.6)">—</span><span>Gate protocol</span></a>
+      <a href="#p1" style="display: grid; grid-template-columns: 26px 1fr; gap: 8px; padding: 9px 4px; font-size: 13px; font-weight: 500; color: #201e1d; border-bottom: 1px solid rgba(32,30,29,0.18)" style-hover="background: rgba(32,30,29,0.07)"><span style="color: rgba(32,30,29,0.45); font-variant-numeric: tabular-nums">01</span><span>Foundation <span style="font-size: 10px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(32,30,29,0.45)">Shared</span></span></a>
+      <a href="#p2" style="display: grid; grid-template-columns: 26px 1fr; gap: 8px; padding: 9px 4px; font-size: 13px; font-weight: 500; color: #201e1d; border-bottom: 1px solid rgba(32,30,29,0.18)" style-hover="background: rgba(32,30,29,0.07)"><span style="color: rgba(32,30,29,0.45); font-variant-numeric: tabular-nums">02</span><span>Metrics &amp; skeleton</span></a>
+      <a href="#p3" style="display: grid; grid-template-columns: 26px 1fr; gap: 8px; padding: 9px 4px; font-size: 13px; font-weight: 500; color: #201e1d; border-bottom: 1px solid rgba(32,30,29,0.18)" style-hover="background: rgba(32,30,29,0.07)"><span style="color: rgba(32,30,29,0.45); font-variant-numeric: tabular-nums">03</span><span>Combat space</span></a>
+      <a href="#p4" style="display: grid; grid-template-columns: 26px 1fr; gap: 8px; padding: 9px 4px; font-size: 13px; font-weight: 500; color: #201e1d; border-bottom: 1px solid rgba(32,30,29,0.18)" style-hover="background: rgba(32,30,29,0.07)"><span style="color: rgba(32,30,29,0.45); font-variant-numeric: tabular-nums">04</span><span>Data &amp; content pipeline</span></a>
+      <a href="#p5" style="display: grid; grid-template-columns: 26px 1fr; gap: 8px; padding: 9px 4px; font-size: 13px; font-weight: 500; color: #201e1d; border-bottom: 1px solid rgba(32,30,29,0.18)" style-hover="background: rgba(32,30,29,0.07)"><span style="color: rgba(32,30,29,0.45); font-variant-numeric: tabular-nums">05</span><span>Entry, extraction, rest</span></a>
+      <a href="#p6" style="display: grid; grid-template-columns: 26px 1fr; gap: 8px; padding: 9px 4px; font-size: 13px; font-weight: 500; color: #201e1d; border-bottom: 1px solid rgba(32,30,29,0.18)" style-hover="background: rgba(32,30,29,0.07)"><span style="color: rgba(32,30,29,0.45); font-variant-numeric: tabular-nums">06</span><span>Raid &amp; threat</span></a>
+      <a href="#p7" style="display: grid; grid-template-columns: 26px 1fr; gap: 8px; padding: 9px 4px; font-size: 13px; font-weight: 500; color: #201e1d; border-bottom: 1px solid rgba(32,30,29,0.18)" style-hover="background: rgba(32,30,29,0.07)"><span style="color: rgba(32,30,29,0.45); font-variant-numeric: tabular-nums">07</span><span>Identity &amp; social</span></a>
+      <a href="#p8" style="display: grid; grid-template-columns: 26px 1fr; gap: 8px; padding: 9px 4px; font-size: 13px; font-weight: 500; color: #201e1d; border-bottom: 1px solid rgba(32,30,29,0.18)" style-hover="background: rgba(32,30,29,0.07)"><span style="color: rgba(32,30,29,0.45); font-variant-numeric: tabular-nums">08</span><span>Network &amp; performance</span></a>
+      <a href="#p9" style="display: grid; grid-template-columns: 26px 1fr; gap: 8px; padding: 9px 4px; font-size: 13px; font-weight: 600; color: #ae1800; border-bottom: 2px solid rgba(32,30,29,0.4)" style-hover="background: rgba(236,48,19,0.1)"><span style="color: rgba(174,24,0,0.6); font-variant-numeric: tabular-nums">09</span><span>Vertical slice <span style="font-size: 10px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase">Shared</span></span></a>
+      <a href="#decisions" style="display: grid; grid-template-columns: 26px 1fr; gap: 8px; padding: 9px 4px; font-size: 13px; font-weight: 500; color: #201e1d; border-bottom: 2px solid rgba(32,30,29,0.4)" style-hover="background: rgba(32,30,29,0.07)"><span style="color: rgba(32,30,29,0.45)">—</span><span>Decisions this plan waits on</span></a>
+    </nav>
+
+    <div style="margin-top: auto; font-size: 11px; line-height: 1.5; color: rgba(32,30,29,0.55)">
+      <div style="border-top: 2px solid rgba(32,30,29,0.4); padding-top: 10px">Companion to the <a href="Zug Zug Master Design Doc.dc.html">Master Design Document v3</a>. Unreal Engine, latest version. Git + Git LFS.</div>
+    </div>
+  </aside>
+
+  <main style="padding: 56px 48px 200px; max-width: 1040px; min-width: 0">
+
+    <header style="border-bottom: 2px solid rgba(32,30,29,0.4); padding-bottom: 28px">
+      <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #ae1800">Work Split Proposal</div>
+      <h1 style="font-size: 72px; line-height: 0.95; letter-spacing: -0.035em; margin: 14px 0 18px; max-width: 22ch">Empty project to vertical slice</h1>
+      <div style="font-size: 19px; max-width: 62ch; color: rgba(32,30,29,0.7)">Two developers working one Unreal project in parallel lanes, with named points where both lanes stop, combine their branches, and build the overlap together before splitting again.</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin-top: 32px; border-top: 1px solid rgba(32,30,29,0.18)">
+        <div style="padding: 14px 16px 0 0; border-right: 1px solid rgba(32,30,29,0.18)">
+          <div style="font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(32,30,29,0.55)">Phases</div>
+          <div style="font-size: 15px; font-weight: 600; margin-top: 4px">9, ordered — no dates</div>
+        </div>
+        <div style="padding: 14px 16px 0; border-right: 1px solid rgba(32,30,29,0.18)">
+          <div style="font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(32,30,29,0.55)">Merge gates</div>
+          <div style="font-size: 15px; font-weight: 600; margin-top: 4px">7 halt-and-combine points</div>
+        </div>
+        <div style="padding: 14px 0 0 16px">
+          <div style="font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(32,30,29,0.55)">End state</div>
+          <div style="font-size: 15px; font-weight: 600; margin-top: 4px">Greybox vertical slice</div>
+        </div>
+      </div>
+    </header>
+
+    <section id="lanes" style="margin-top: 64px">
+      <div style="border-top: 2px solid rgba(32,30,29,0.4); padding-top: 18px">
+        <h2 style="font-size: 32px; letter-spacing: -0.02em">The two lanes</h2>
+        <p style="margin-top: 14px; max-width: 72ch; font-size: 15.5px; line-height: 1.6">Each lane owns its own long-lived branch and its own folders in the project. A lane never edits the other lane's assets between gates — that is what keeps two people out of each other's <code style="font-family: ui-monospace, Menlo, monospace; font-size: 13.5px; background: #eae9e9; padding: 1px 5px">.uasset</code> files on Git.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); border: 1px solid rgba(32,30,29,0.18); margin-top: 24px">
+          <div style="padding: 26px; border-right: 1px solid rgba(32,30,29,0.18)">
+            <div style="display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: #201e1d; color: #f3f2f2; padding: 4px 7px">Lane A</div>
+            <div style="font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin-top: 10px">World</div>
+            <p style="font-size: 14.5px; line-height: 1.6; margin-top: 8px; color: rgba(32,30,29,0.7)">Vorgathul and Vaelmoor, level blockout, streaming, lore and naming content, the home hub.</p>
+            <div style="font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(32,30,29,0.55); margin-top: 18px">Owns</div>
+            <ul style="list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 7px; font-size: 13.5px; line-height: 1.5">
+              <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Landscape, World Partition grid, streaming and HLOD</span></li>
+              <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span><code style="font-family: ui-monospace, Menlo, monospace; font-size: 12.5px">/Content/Maps</code>, <code style="font-family: ui-monospace, Menlo, monospace; font-size: 12.5px">/Environment</code>, POI and monument placement</span></li>
+              <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Lore, naming tables, honor and title content</span></li>
+              <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Loot, tome and resource spawn topology</span></li>
+            </ul>
+          </div>
+          <div style="padding: 26px">
+            <div style="display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid #201e1d; padding: 3px 6px">Lane B</div>
+            <div style="font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin-top: 10px">Systems</div>
+            <p style="font-size: 14.5px; line-height: 1.6; margin-top: 8px; color: rgba(32,30,29,0.7)">Mechanics and player interaction: combat, abilities, gear, UI, and the network layer under all of it.</p>
+            <div style="font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(32,30,29,0.55); margin-top: 18px">Owns</div>
+            <ul style="list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 7px; font-size: 13.5px; line-height: 1.5">
+              <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>C++ gameplay module: attributes, abilities, attack table, defense</span></li>
+              <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Data assets, requirements, equip-gating, runes and sockets</span></li>
+              <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Enhanced Input, camera, CommonUI screens</span></li>
+              <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Replication, dedicated server, persistence — this lane owns netcode</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="branches" style="margin-top: 64px">
+      <div style="border-top: 2px solid rgba(32,30,29,0.4); padding-top: 18px">
+        <h2 style="font-size: 32px; letter-spacing: -0.02em">Branch model</h2>
+        <p style="margin-top: 14px; max-width: 72ch; font-size: 15.5px; line-height: 1.6">Git with LFS for binary content. Because <code style="font-family: ui-monospace, Menlo, monospace; font-size: 13.5px; background: #eae9e9; padding: 1px 5px">.uasset</code> and <code style="font-family: ui-monospace, Menlo, monospace; font-size: 13.5px; background: #eae9e9; padding: 1px 5px">.umap</code> cannot be merged, ownership is folder-level and absolute between gates.</p>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 22px">
+          <thead>
+            <tr>
+              <th style="text-align: left; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 0 16px 8px 0; border-bottom: 2px solid #201e1d; width: 26%">Branch</th>
+              <th style="text-align: left; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 0 16px 8px 0; border-bottom: 2px solid #201e1d; width: 16%">Life</th>
+              <th style="text-align: left; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 0 0 8px; border-bottom: 2px solid #201e1d">Rule</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 13px 16px 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-family: ui-monospace, Menlo, monospace; font-size: 13.5px; font-weight: 600; vertical-align: top">main</td>
+              <td style="padding: 13px 16px 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 13.5px; vertical-align: top">Permanent</td>
+              <td style="padding: 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 14px; line-height: 1.5; vertical-align: top">Always compiles, always plays. Only gate merges and phase completions land here.</td>
+            </tr>
+            <tr>
+              <td style="padding: 13px 16px 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-family: ui-monospace, Menlo, monospace; font-size: 13.5px; font-weight: 600; vertical-align: top">lane/world</td>
+              <td style="padding: 13px 16px 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 13.5px; vertical-align: top">Long-lived</td>
+              <td style="padding: 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 14px; line-height: 1.5; vertical-align: top">Lane A only. Re-cut from <code style="font-family: ui-monospace, Menlo, monospace; font-size: 13px">main</code> after every gate.</td>
+            </tr>
+            <tr>
+              <td style="padding: 13px 16px 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-family: ui-monospace, Menlo, monospace; font-size: 13.5px; font-weight: 600; vertical-align: top">lane/systems</td>
+              <td style="padding: 13px 16px 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 13.5px; vertical-align: top">Long-lived</td>
+              <td style="padding: 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 14px; line-height: 1.5; vertical-align: top">Lane B only. Same rule.</td>
+            </tr>
+            <tr>
+              <td style="padding: 13px 16px 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-family: ui-monospace, Menlo, monospace; font-size: 13.5px; font-weight: 600; vertical-align: top">gate/&lt;letter&gt;-&lt;name&gt;</td>
+              <td style="padding: 13px 16px 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 13.5px; vertical-align: top">Short</td>
+              <td style="padding: 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 14px; line-height: 1.5; vertical-align: top">Both lanes, together. Created at a halt, deleted after it merges to <code style="font-family: ui-monospace, Menlo, monospace; font-size: 13px">main</code> and gets tagged.</td>
+            </tr>
+          </tbody>
+        </table>
+        <ul style="list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 12px; max-width: 74ch; font-size: 15px; line-height: 1.6">
+          <li style="display: grid; grid-template-columns: 12px 1fr; gap: 14px; align-items: start"><span style="width: 6px; height: 6px; background: #201e1d; margin-top: 9px"></span><span>LFS tracks <code style="font-family: ui-monospace, Menlo, monospace; font-size: 13.5px">*.uasset *.umap *.fbx *.wav *.png</code>; <code style="font-family: ui-monospace, Menlo, monospace; font-size: 13.5px">Binaries/ Intermediate/ Saved/ DerivedDataCache/</code> stay ignored from commit one.</span></li>
+          <li style="display: grid; grid-template-columns: 12px 1fr; gap: 14px; align-items: start"><span style="width: 6px; height: 6px; background: #201e1d; margin-top: 9px"></span><span>One owner per content folder. If both lanes need the same asset, that need is a gate, not a merge.</span></li>
+          <li style="display: grid; grid-template-columns: 12px 1fr; gap: 14px; align-items: start"><span style="width: 6px; height: 6px; background: #201e1d; margin-top: 9px"></span><span>Shared C++ headers (tags, data-asset base classes) live in the gameplay module and only change on a gate branch.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="gates" style="margin-top: 64px">
+      <div style="border-top: 2px solid rgba(32,30,29,0.4); padding-top: 18px">
+        <h2 style="font-size: 32px; letter-spacing: -0.02em">Gate protocol</h2>
+        <p style="margin-top: 14px; max-width: 72ch; font-size: 15.5px; line-height: 1.6">A gate is a point where the two lanes genuinely overlap. Rather than each dev guessing at the other's half, both stop, combine the branches, and build the overlap in one sitting.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); border-top: 1px solid rgba(32,30,29,0.18); border-left: 1px solid rgba(32,30,29,0.18); margin-top: 24px">
+          <div style="padding: 18px 16px; border-right: 1px solid rgba(32,30,29,0.18); border-bottom: 1px solid rgba(32,30,29,0.18)"><div style="font-size: 10px; font-weight: 800; letter-spacing: 0.1em; color: #ae1800">01 Halt</div><div style="font-size: 14px; line-height: 1.5; margin-top: 8px">Both lanes push what they have and take no new work.</div></div>
+          <div style="padding: 18px 16px; border-right: 1px solid rgba(32,30,29,0.18); border-bottom: 1px solid rgba(32,30,29,0.18)"><div style="font-size: 10px; font-weight: 800; letter-spacing: 0.1em; color: #ae1800">02 Combine</div><div style="font-size: 14px; line-height: 1.5; margin-top: 8px">Both lane branches merge into one <code style="font-family: ui-monospace, Menlo, monospace; font-size: 12.5px">gate/*</code> branch.</div></div>
+          <div style="padding: 18px 16px; border-right: 1px solid rgba(32,30,29,0.18); border-bottom: 1px solid rgba(32,30,29,0.18)"><div style="font-size: 10px; font-weight: 800; letter-spacing: 0.1em; color: #ae1800">03 Co-author</div><div style="font-size: 14px; line-height: 1.5; margin-top: 8px">The shared artifact is built together, in one session, on that branch.</div></div>
+          <div style="padding: 18px 16px; border-right: 1px solid rgba(32,30,29,0.18); border-bottom: 1px solid rgba(32,30,29,0.18)"><div style="font-size: 10px; font-weight: 800; letter-spacing: 0.1em; color: #ae1800">04 Land</div><div style="font-size: 14px; line-height: 1.5; margin-top: 8px">Merge to <code style="font-family: ui-monospace, Menlo, monospace; font-size: 12.5px">main</code>, tag it, write the decision down.</div></div>
+          <div style="padding: 18px 16px; border-right: 1px solid rgba(32,30,29,0.18); border-bottom: 1px solid rgba(32,30,29,0.18)"><div style="font-size: 10px; font-weight: 800; letter-spacing: 0.1em; color: #ae1800">05 Resume</div><div style="font-size: 14px; line-height: 1.5; margin-top: 8px">Lanes re-cut from <code style="font-family: ui-monospace, Menlo, monospace; font-size: 12.5px">main</code>. What the gate settled is not reopened.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="p1" style="margin-top: 72px">
+      <div style="border-top: 2px solid rgba(32,30,29,0.4); padding-top: 18px">
+        <div style="display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 24px">
+          <div style="font-size: 44px; font-weight: 800; letter-spacing: -0.03em; color: #ec3013; line-height: 0.9">01</div>
+          <div>
+            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap">
+              <h2 style="font-size: 32px; letter-spacing: -0.02em">Foundation</h2>
+              <span style="font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: #ec3013; color: #f3f2f2; padding: 4px 7px">Both devs, one branch</span>
+            </div>
+            <p style="margin-top: 14px; max-width: 72ch; font-size: 15px; line-height: 1.6">Empty Unreal project to a repository both devs can build and run. Nothing splits until this is done — every convention set here is one both lanes have to live inside.</p>
+            <ul style="list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 11px; max-width: 76ch; font-size: 15px; line-height: 1.6">
+              <li style="display: grid; grid-template-columns: 12px 1fr; gap: 14px; align-items: start"><span style="width: 6px; height: 6px; background: #201e1d; margin-top: 9px"></span><span>Blank C++ project; one primary gameplay module plus an editor module; a <strong style="font-weight: 600">dedicated server target added at commit one</strong> rather than retrofitted later</span></li>
+              <li style="display: grid; grid-template-columns: 12px 1fr; gap: 14px; align-items: start"><span style="width: 6px; height: 6px; background: #201e1d; margin-top: 9px"></span><span>Git + LFS setup, <code style="font-family: ui-monospace, Menlo, monospace; font-size: 13.5px">.gitattributes</code> / <code style="font-family: ui-monospace, Menlo, monospace; font-size: 13.5px">.gitignore</code>, branch and tag naming, folder ownership map</span></li>
+              <li style="display: grid; grid-template-columns: 12px 1fr; gap: 14px; align-items: start"><span style="width: 6px; height: 6px; background: #201e1d; margin-top: 9px"></span><span>Gameplay Tag registry seeded from the master doc taxonomy — <code style="font-family: ui-monospace, Menlo, monospace; font-size: 13.5px">Actor.* Stat.* Item.* State.* Trait.* Damage.* Effect.*</code> — as config-sourced tags, no duplicates</span></li>
+              <li style="display: grid; grid-template-columns: 12px 1fr; gap: 14px; align-items: start"><span style="width: 6px; height: 6px; background: #ec3013; margin-top: 9px"></span><span><strong style="font-weight: 600">Decision to make here:</strong> Gameplay Ability System as the base, or a custom C++ ability framework. Phases 3 and 4 are built on the answer.</span></li>
+            </ul>
+            <div style="margin-top: 20px; background: #eae9e9; padding: 18px 20px; max-width: 76ch">
+              <div style="font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #ae1800">Exit criteria</div>
+              <p style="margin-top: 8px; font-size: 14.5px; line-height: 1.6">Both devs clone, compile, and run a client against a local dedicated-server build with a placeholder Zug'thar pawn. Tag registry compiles. One commit on <code style="font-family: ui-monospace, Menlo, monospace; font-size: 13px">main</code>, ability framework chosen and written down.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="p2" style="margin-top: 64px">
+      <div style="border-top: 2px solid rgba(32,30,29,0.4); padding-top: 18px">
+        <div style="display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 24px">
+          <div style="font-size: 44px; font-weight: 800; letter-spacing: -0.03em; color: #ec3013; line-height: 0.9">02</div>
+          <div>
+            <h2 style="font-size: 32px; letter-spacing: -0.02em">Metrics &amp; skeleton</h2>
+            <p style="margin-top: 14px; max-width: 72ch; font-size: 15px; line-height: 1.6">The lanes split here. Both build the crudest possible version of their half so the numbers that bind them can be measured rather than argued.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); border: 1px solid rgba(32,30,29,0.18); margin-top: 22px">
+              <div style="padding: 22px 24px; border-right: 1px solid rgba(32,30,29,0.18)">
+                <div style="display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: #201e1d; color: #f3f2f2; padding: 4px 7px">Lane A — World</div>
+                <ul style="list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 9px; font-size: 14px; line-height: 1.55">
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>World Partition enabled, cell size and grid decided</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Vorgathul interior blocked out at true scale — caves, vents, hub</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>A metrics rig level: door widths, step heights, ledge and gap tests</span></li>
+                </ul>
+              </div>
+              <div style="padding: 22px 24px">
+                <div style="display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid #201e1d; padding: 3px 6px">Lane B — Systems</div>
+                <ul style="list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 9px; font-size: 14px; line-height: 1.55">
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Zug'thar pawn, Enhanced Input, camera rig</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Movement tuning: walk, sprint, encumbered sprint, stamina drain</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span><code style="font-family: ui-monospace, Menlo, monospace; font-size: 12.5px">UAttributeComponent</code> — 1–20 scale with growth-by-doing hooks firing off real actions</span></li>
+                </ul>
+              </div>
+            </div>
+            <div style="border: 2px solid #ec3013; margin-top: 0; padding: 22px 24px; max-width: 100%">
+              <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap">
+                <span style="font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: #ec3013; color: #f3f2f2; padding: 4px 7px">Gate A</span>
+                <span style="font-size: 17px; font-weight: 800; letter-spacing: -0.01em">Movement metrics</span>
+              </div>
+              <p style="margin-top: 10px; font-size: 14.5px; line-height: 1.6; max-width: 72ch">Halt both lanes. Agree creature size, eye height, walk and sprint speeds, jump and fall tolerance, and the vent-launch arc. Bake the numbers into the base <code style="font-family: ui-monospace, Menlo, monospace; font-size: 13px">URaceDataAsset</code> and the metrics rig in the same commit. Neither blockout nor movement tuning continues before this lands — every wall, doorway and encounter space built after it depends on these numbers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="p3" style="margin-top: 64px">
+      <div style="border-top: 2px solid rgba(32,30,29,0.4); padding-top: 18px">
+        <div style="display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 24px">
+          <div style="font-size: 44px; font-weight: 800; letter-spacing: -0.03em; color: #ec3013; line-height: 0.9">03</div>
+          <div>
+            <h2 style="font-size: 32px; letter-spacing: -0.02em">Combat space</h2>
+            <p style="margin-top: 14px; max-width: 72ch; font-size: 15px; line-height: 1.6">Combat gets its rhythm and the world gets its first surface zone. The overlap is physical: reach, flanking and ranged bands only work in space that was built for them.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); border: 1px solid rgba(32,30,29,0.18); margin-top: 22px">
+              <div style="padding: 22px 24px; border-right: 1px solid rgba(32,30,29,0.18)">
+                <div style="display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: #201e1d; color: #f3f2f2; padding: 4px 7px">Lane A — World</div>
+                <ul style="list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 9px; font-size: 14px; line-height: 1.55">
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Landscape pass on the volcano exterior and the first surface zone</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Geothermal vent launch volumes; POI graph and travel distances</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Monument sites marked, with their recall-disabled volumes drawn</span></li>
+                </ul>
+              </div>
+              <div style="padding: 22px 24px">
+                <div style="display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid #201e1d; padding: 3px 6px">Lane B — Systems</div>
+                <ul style="list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 9px; font-size: 14px; line-height: 1.55">
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Independent swing timers, 1.2–1.5s GCD, cast pushback</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Single-roll attack table; Off-Guard from relative facing</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Weapon traits — Agile, Reach, Forceful, Sweep, Deadly — as tag-driven modifiers</span></li>
+                </ul>
+              </div>
+            </div>
+            <div style="border: 2px solid #ec3013; padding: 22px 24px">
+              <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap">
+                <span style="font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: #ec3013; color: #f3f2f2; padding: 4px 7px">Gate B</span>
+                <span style="font-size: 17px; font-weight: 800; letter-spacing: -0.01em">Encounter volumes</span>
+              </div>
+              <p style="margin-top: 10px; font-size: 14.5px; line-height: 1.6; max-width: 72ch">Halt both lanes and co-author three reference arenas in a shared test map — a corridor, an open field and a vertical space — sized against the real numbers: Reach collision boxes, the flanking arc that erases Dodge and Parry, and the 10m band where ranged threat changes. These arenas become the acceptance test for every later encounter space.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="p4" style="margin-top: 64px">
+      <div style="border-top: 2px solid rgba(32,30,29,0.4); padding-top: 18px">
+        <div style="display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 24px">
+          <div style="font-size: 44px; font-weight: 800; letter-spacing: -0.03em; color: #ec3013; line-height: 0.9">04</div>
+          <div>
+            <h2 style="font-size: 32px; letter-spacing: -0.02em">Data &amp; content pipeline</h2>
+            <p style="margin-top: 14px; max-width: 72ch; font-size: 15px; line-height: 1.6">Tomes, weapons and gear become data. This is where the weapon-defined class rule from the design doc gets implemented, and where the two lanes start editing the same kinds of files.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); border: 1px solid rgba(32,30,29,0.18); margin-top: 22px">
+              <div style="padding: 22px 24px; border-right: 1px solid rgba(32,30,29,0.18)">
+                <div style="display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: #201e1d; color: #f3f2f2; padding: 4px 7px">Lane A — World</div>
+                <ul style="list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 9px; font-size: 14px; line-height: 1.55">
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Physical tome props and their world placement in ruins and dungeons</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Loot and mob spawn topology, respawn timing per POI</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Resource nodes — precious metals, extreme-environment herbs</span></li>
+                </ul>
+              </div>
+              <div style="padding: 22px 24px">
+                <div style="display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid #201e1d; padding: 3px 6px">Lane B — Systems</div>
+                <ul style="list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 9px; font-size: 14px; line-height: 1.55">
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span><code style="font-family: ui-monospace, Menlo, monospace; font-size: 12.5px">URaceDataAsset</code>, <code style="font-family: ui-monospace, Menlo, monospace; font-size: 12.5px">UFeatDataAsset</code>, <code style="font-family: ui-monospace, Menlo, monospace; font-size: 12.5px">UBookItemDataAsset</code>, weapon and armor assets</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span><code style="font-family: ui-monospace, Menlo, monospace; font-size: 12.5px">FCharacterRequirement</code> — tag query plus attribute minimums for legibility</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Equip-gating: the weapon decides which learned abilities are usable, and re-weights the stats behind them</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Rune and socket layer, transferable at a forge</span></li>
+                </ul>
+              </div>
+            </div>
+            <div style="border: 2px solid #ec3013; padding: 22px 24px">
+              <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap">
+                <span style="font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: #ec3013; color: #f3f2f2; padding: 4px 7px">Gate C</span>
+                <span style="font-size: 17px; font-weight: 800; letter-spacing: -0.01em">Data ownership and the weapon-to-pillar map</span>
+              </div>
+              <p style="margin-top: 10px; font-size: 14.5px; line-height: 1.6; max-width: 72ch">Halt both lanes. Settle which weapons and weapon groups belong to Tank, Mage, Healer and Melee DPS — the open decision the design doc hands to this phase — and who authors which data asset, where the tables live, and how content edits avoid <code style="font-family: ui-monospace, Menlo, monospace; font-size: 13px">.uasset</code> collisions. One naming and folder convention, checked in with the first real weapon and the first real tome.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="p5" style="margin-top: 64px">
+      <div style="border-top: 2px solid rgba(32,30,29,0.4); padding-top: 18px">
+        <div style="display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 24px">
+          <div style="font-size: 44px; font-weight: 800; letter-spacing: -0.03em; color: #ec3013; line-height: 0.9">05</div>
+          <div>
+            <h2 style="font-size: 32px; letter-spacing: -0.02em">Entry, extraction, rest</h2>
+            <p style="margin-top: 14px; max-width: 72ch; font-size: 15px; line-height: 1.6">Both ends of the loop. Since extraction replaced the campfire, the hub is not decoration — it is where fatigue resets, stat points lock in and tomes are studied.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); border: 1px solid rgba(32,30,29,0.18); margin-top: 22px">
+              <div style="padding: 22px 24px; border-right: 1px solid rgba(32,30,29,0.18)">
+                <div style="display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: #201e1d; color: #f3f2f2; padding: 4px 7px">Lane A — World</div>
+                <ul style="list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 9px; font-size: 14px; line-height: 1.55">
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Vent launch to airborne drop-in: the physical path out of the mountain</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Home hub interior — rest space, clan hall, forge and market frontage</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Landing-spread test: is the drop area readable from the air?</span></li>
+                </ul>
+              </div>
+              <div style="padding: 22px 24px">
+                <div style="display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid #201e1d; padding: 3px 6px">Lane B — Systems</div>
+                <ul style="list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 9px; font-size: 14px; line-height: 1.55">
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Recall cast, uninterruptible but vulnerable; the longer group channel</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Death and full loot: protected bag, weapon insurance, channeler inheritance</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Extraction as the rest beat — fatigue reset, stat lock-in, tome study</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Recall suppression inside the volumes Lane A drew</span></li>
+                </ul>
+              </div>
+            </div>
+            <div style="border: 2px solid #ec3013; padding: 22px 24px">
+              <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap">
+                <span style="font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: #ec3013; color: #f3f2f2; padding: 4px 7px">Gate D</span>
+                <span style="font-size: 17px; font-weight: 800; letter-spacing: -0.01em">World state vs player state</span>
+              </div>
+              <p style="margin-top: 10px; font-size: 14.5px; line-height: 1.6; max-width: 72ch">Halt both lanes. Draw the line between what the world owns (spawns, respawn timers, vent state) and what the player carries home (attributes, grimoire, inventory, honor), and build the hub's rest interaction against it once. Everything in phases 7 and 8 reads from this boundary.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="p6" style="margin-top: 64px">
+      <div style="border-top: 2px solid rgba(32,30,29,0.4); padding-top: 18px">
+        <div style="display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 24px">
+          <div style="font-size: 44px; font-weight: 800; letter-spacing: -0.03em; color: #ec3013; line-height: 0.9">06</div>
+          <div>
+            <h2 style="font-size: 32px; letter-spacing: -0.02em">Raid &amp; threat</h2>
+            <p style="margin-top: 14px; max-width: 72ch; font-size: 15px; line-height: 1.6">The densest overlap in the project: an encounter is level design and systems design at the same time, and clearing it is only half the objective.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); border: 1px solid rgba(32,30,29,0.18); margin-top: 22px">
+              <div style="padding: 22px 24px; border-right: 1px solid rgba(32,30,29,0.18)">
+                <div style="display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: #201e1d; color: #f3f2f2; padding: 4px 7px">Lane A — World</div>
+                <ul style="list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 9px; font-size: 14px; line-height: 1.55">
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>First monument blocked out inside the persistent world, not an instance</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Approach, chokepoints and the escape route you extract along</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Ambush sightlines for the players who camp the exit</span></li>
+                </ul>
+              </div>
+              <div style="padding: 22px 24px">
+                <div style="display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid #201e1d; padding: 3px 6px">Lane B — Systems</div>
+                <ul style="list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 9px; font-size: 14px; line-height: 1.55">
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Threat generated by abilities used, weighted by the equipped weapon</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Mob AI and perception; aggro transition thresholds re-scoped</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Encounter scripting hooks, conditions on the 2.0s DoT heartbeat, CC diminishing returns</span></li>
+                </ul>
+              </div>
+            </div>
+            <div style="border: 2px solid #ec3013; padding: 22px 24px">
+              <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap">
+                <span style="font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: #ec3013; color: #f3f2f2; padding: 4px 7px">Gate E</span>
+                <span style="font-size: 17px; font-weight: 800; letter-spacing: -0.01em">One raid, co-authored</span>
+              </div>
+              <p style="margin-top: 10px; font-size: 14.5px; line-height: 1.6; max-width: 72ch">The longest halt in the plan. Both lanes stop and build the first monument end to end together — space, mobs, threat, loot and the extraction that follows the kill. It sets the template every later raid is authored against, and it is where PvP-invasion risk inside a raid gets decided in practice rather than on paper.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="p7" style="margin-top: 64px">
+      <div style="border-top: 2px solid rgba(32,30,29,0.4); padding-top: 18px">
+        <div style="display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 24px">
+          <div style="font-size: 44px; font-weight: 800; letter-spacing: -0.03em; color: #ec3013; line-height: 0.9">07</div>
+          <div>
+            <h2 style="font-size: 32px; letter-spacing: -0.02em">Identity &amp; social</h2>
+            <p style="margin-top: 14px; max-width: 72ch; font-size: 15px; line-height: 1.6">Honor, renown, clans and the name a player carries. Content and system meet in one string.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); border: 1px solid rgba(32,30,29,0.18); margin-top: 22px">
+              <div style="padding: 22px 24px; border-right: 1px solid rgba(32,30,29,0.18)">
+                <div style="display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: #201e1d; color: #f3f2f2; padding: 4px 7px">Lane A — World</div>
+                <ul style="list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 9px; font-size: 14px; line-height: 1.55">
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Honor rank ladder and achievement title content, final naming pass</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Clan fiction as cave dwellings; hub lore surfaces and the Divide questline seeds</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Vaelmoor's first outposts — what the raids actually raid</span></li>
+                </ul>
+              </div>
+              <div style="padding: 22px 24px">
+                <div style="display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid #201e1d; padding: 3px 6px">Lane B — Systems</div>
+                <ul style="list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 9px; font-size: 14px; line-height: 1.55">
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Honor and Renown accumulation, permanent win/loss record</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Clan membership, in-clan item transfer, leadership board and High Warlord standing</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Market, quests and loadout screens in CommonUI — no in-world NPCs</span></li>
+                </ul>
+              </div>
+            </div>
+            <div style="border: 2px solid #ec3013; padding: 22px 24px">
+              <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap">
+                <span style="font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: #ec3013; color: #f3f2f2; padding: 4px 7px">Gate F</span>
+                <span style="font-size: 17px; font-weight: 800; letter-spacing: -0.01em">Name assembly</span>
+              </div>
+              <p style="margin-top: 10px; font-size: 14.5px; line-height: 1.6; max-width: 72ch">Halt both lanes and build one shared assembler for <code style="font-family: ui-monospace, Menlo, monospace; font-size: 13px">&lt;a&gt;'&lt;b&gt; the &lt;c&gt; of the &lt;d&gt;</code>, including the clanless collapse to <strong style="font-weight: 600">the Exiled</strong> at the lowest honor rank. One table, one function, used by both the systems that write it and every surface that displays it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="p8" style="margin-top: 64px">
+      <div style="border-top: 2px solid rgba(32,30,29,0.4); padding-top: 18px">
+        <div style="display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 24px">
+          <div style="font-size: 44px; font-weight: 800; letter-spacing: -0.03em; color: #ec3013; line-height: 0.9">08</div>
+          <div>
+            <h2 style="font-size: 32px; letter-spacing: -0.02em">Network &amp; performance</h2>
+            <p style="margin-top: 14px; max-width: 72ch; font-size: 15px; line-height: 1.6">A persistent shared world has to hold up with people in it. Lane B owns the network layer; Lane A owns what the streaming and rendering budget will allow.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); border: 1px solid rgba(32,30,29,0.18); margin-top: 22px">
+              <div style="padding: 22px 24px; border-right: 1px solid rgba(32,30,29,0.18)">
+                <div style="display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: #201e1d; color: #f3f2f2; padding: 4px 7px">Lane A — World</div>
+                <ul style="list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 9px; font-size: 14px; line-height: 1.55">
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>World Partition streaming budget, HLOD setup, cell load times</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Nanite and Lumen settings for a lava-lit interior; light bake strategy</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Actor count and memory budget per cell, agreed with Lane B's numbers</span></li>
+                </ul>
+              </div>
+              <div style="padding: 22px 24px">
+                <div style="display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; border: 2px solid #201e1d; padding: 3px 6px">Lane B — Systems</div>
+                <ul style="list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 9px; font-size: 14px; line-height: 1.55">
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Replication pass over combat, inventory and extraction; server authority</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Relevancy and net update rates; lag compensation on the attack table</span></li>
+                  <li style="display: grid; grid-template-columns: 10px 1fr; gap: 12px; align-items: start"><span style="width: 5px; height: 5px; background: #201e1d; margin-top: 8px"></span><span>Persistence for character, grimoire, clan and honor; season reset path</span></li>
+                </ul>
+              </div>
+            </div>
+            <div style="border: 2px solid #ec3013; padding: 22px 24px">
+              <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap">
+                <span style="font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: #ec3013; color: #f3f2f2; padding: 4px 7px">Gate G</span>
+                <span style="font-size: 17px; font-weight: 800; letter-spacing: -0.01em">The budget</span>
+              </div>
+              <p style="margin-top: 10px; font-size: 14.5px; line-height: 1.6; max-width: 72ch">Halt both lanes and measure the real zone on a dedicated-server build with a crowd in it: frame time, bandwidth per client, server tick, streaming hitches. Both lanes accept the resulting numbers before either adds more content or more systems.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="p9" style="margin-top: 64px">
+      <div style="border-top: 2px solid rgba(32,30,29,0.4); padding-top: 18px">
+        <div style="display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 24px">
+          <div style="font-size: 44px; font-weight: 800; letter-spacing: -0.03em; color: #ec3013; line-height: 0.9">09</div>
+          <div>
+            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap">
+              <h2 style="font-size: 32px; letter-spacing: -0.02em">Vertical slice</h2>
+              <span style="font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: #ec3013; color: #f3f2f2; padding: 4px 7px">Both devs, one branch</span>
+            </div>
+            <p style="margin-top: 14px; max-width: 72ch; font-size: 15px; line-height: 1.6">Lanes close. Everything merges to <code style="font-family: ui-monospace, Menlo, monospace; font-size: 13.5px; background: #eae9e9; padding: 1px 5px">main</code> and the work is playing the loop until it holds together.</p>
+            <div style="background: #ec3013; color: #f3f2f2; padding: 30px 32px; margin-top: 24px">
+              <div style="font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.85">Definition of done</div>
+              <p style="font-size: 20px; line-height: 1.4; font-weight: 600; margin-top: 10px; max-width: 62ch">One zone, one raid, the full loop playable on a dedicated server: vent launch, drop-in, fight, find a tome, clear the monument, extract under pressure, rest at home, study, re-equip and go again.</p>
+            </div>
+            <div style="margin-top: 24px; background: #eae9e9; padding: 18px 20px; max-width: 76ch">
+              <div style="font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #ae1800">Exit criteria</div>
+              <p style="margin-top: 8px; font-size: 14.5px; line-height: 1.6">No lane-local work outstanding, both lane branches deleted, greybox art throughout, and a playtest recording of the loop start to finish. Anything the slice proved wrong goes back into the master design document before new content starts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="decisions" style="margin-top: 72px">
+      <div style="border-top: 2px solid rgba(32,30,29,0.4); padding-top: 18px">
+        <h2 style="font-size: 32px; letter-spacing: -0.02em">Decisions this plan waits on</h2>
+        <p style="margin-top: 14px; max-width: 72ch; font-size: 15px; line-height: 1.6">Each of these belongs to a phase rather than to a lane. Where one is unanswered, the phase it sits in cannot exit.</p>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 22px">
+          <thead>
+            <tr>
+              <th style="text-align: left; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 0 16px 8px 0; border-bottom: 2px solid #201e1d; width: 14%">Phase</th>
+              <th style="text-align: left; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 0 16px 8px 0; border-bottom: 2px solid #201e1d">Decision</th>
+              <th style="text-align: left; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 0 0 8px; border-bottom: 2px solid #201e1d; width: 26%">Blocks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 13px 16px 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 14px; font-weight: 600; vertical-align: top">01</td>
+              <td style="padding: 13px 16px 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 14px; line-height: 1.5; vertical-align: top">Gameplay Ability System or a custom C++ ability framework</td>
+              <td style="padding: 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 14px; line-height: 1.5; vertical-align: top; color: rgba(32,30,29,0.7)">Phases 3, 4, 6</td>
+            </tr>
+            <tr>
+              <td style="padding: 13px 16px 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 14px; font-weight: 600; vertical-align: top">04</td>
+              <td style="padding: 13px 16px 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 14px; line-height: 1.5; vertical-align: top">Which weapons map to which of the four pillars, and how hard those edges are</td>
+              <td style="padding: 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 14px; line-height: 1.5; vertical-align: top; color: rgba(32,30,29,0.7)">Equip-gating, itemization</td>
+            </tr>
+            <tr>
+              <td style="padding: 13px 16px 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 14px; font-weight: 600; vertical-align: top">04</td>
+              <td style="padding: 13px 16px 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 14px; line-height: 1.5; vertical-align: top">What each weapon boosts, and how it re-weights the attributes behind an ability</td>
+              <td style="padding: 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 14px; line-height: 1.5; vertical-align: top; color: rgba(32,30,29,0.7)">Combat balance, phase 6</td>
+            </tr>
+            <tr>
+              <td style="padding: 13px 16px 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 14px; font-weight: 600; vertical-align: top">05</td>
+              <td style="padding: 13px 16px 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 14px; line-height: 1.5; vertical-align: top">Weapon-save cost and odds; anti-exploit gating on the death-during-extraction reward</td>
+              <td style="padding: 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 14px; line-height: 1.5; vertical-align: top; color: rgba(32,30,29,0.7)">Loop economy</td>
+            </tr>
+            <tr>
+              <td style="padding: 13px 16px 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 14px; font-weight: 600; vertical-align: top">06</td>
+              <td style="padding: 13px 16px 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 14px; line-height: 1.5; vertical-align: top">Re-scope of Armor Presence, Guardian Passives and aggro thresholds against ability-driven threat</td>
+              <td style="padding: 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 14px; line-height: 1.5; vertical-align: top; color: rgba(32,30,29,0.7)">Raid tuning</td>
+            </tr>
+            <tr>
+              <td style="padding: 13px 16px 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 14px; font-weight: 600; vertical-align: top">08</td>
+              <td style="padding: 13px 16px 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 14px; line-height: 1.5; vertical-align: top">Persistence backend, and whether Git LFS still holds once binary churn is real</td>
+              <td style="padding: 13px 0; border-bottom: 1px solid rgba(32,30,29,0.18); font-size: 14px; line-height: 1.5; vertical-align: top; color: rgba(32,30,29,0.7)">Season reset, team workflow</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer style="margin-top: 80px; border-top: 2px solid rgba(32,30,29,0.4); padding-top: 18px; display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(32,30,29,0.55)">
+      <span>Zug Zug — Work Split Proposal</span>
+      <span><a href="Zug Zug Master Design Doc.dc.html">Master Design Document v3</a></span>
+    </footer>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
