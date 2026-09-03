@@ -66,7 +66,13 @@ Content/
 │                           (BP_GameMode, BP_PlayerController, etc.)
 │
 ├── Characters/
-│   ├── Player/             Player orc meshes, animations, rigs
+│   ├── Orc/                Orc character content (player + orc NPCs) — from the Toon RTS Orcs pack
+│   │   ├── Meshes/         SK_Orc_* bodies + unit variants; Parts/{Cavalry,Units}/ modular pieces
+│   │   ├── Rig/            Orc_*_Skeleton, Orc_*_PhysicsAsset
+│   │   ├── Animations/     Per-unit sets: Archer, Cavalry*, Infantry, Mage, Spearman, Worker…
+│   │   ├── Materials/      M_Orcs_Parent, M_Wolf_Parent, MI_Orc_* skin tints, MI_Wolf_*
+│   │   └── Textures/       T_Orcs_* atlases
+│   ├── Player/             Player-specific setup (camera rig, input) if it needs its own folder
 │   ├── Enemies/            Vaelmoor human enemies
 │   └── NPCs/               Home base non-combat characters
 │
@@ -77,7 +83,7 @@ Content/
 │   └── Monuments/          Raid encounter volumes — The Throat, Obsidian Shelf, etc.
 │
 ├── Items/
-│   ├── Weapons/            Weapon actor Blueprints and meshes
+│   ├── Weapons/            Weapon actor Blueprints; Meshes/ holds SM_Orc_weapon_*, shields, etc.
 │   ├── Armor/              Armor actor Blueprints
 │   ├── Tomes/              Book world items (linked to DATBookItemDataAsset)
 │   └── Consumables/        Potions, food, utility items
@@ -97,12 +103,15 @@ Content/
 ├── VFX/                    Niagara systems and material FX
 ├── Audio/                  Sound cues and audio assets
 │
-├── Maps/
-│   ├── Persistent/         World Partition main world (the persistent shared zone)
-│   └── Dev/                Small isolated test maps (not shipped)
-│
-└── Toon_RTS_Orcs/          Third-party asset pack — do not reorganise
+└── Maps/
+    ├── Persistent/         World Partition main world (the persistent shared zone)
+    └── Dev/                Small isolated test maps + vendor reference (e.g. the modular-orc
+                            assembly test Blueprints) — not shipped
 ```
+
+> **Third-party packs:** integrate imported packs into the trees above rather than leaving them
+> as a top-level vendor folder. The **Toon RTS Orcs** pack was redistributed into `Characters/Orc/`,
+> `Items/Weapons/Meshes/`, and `Maps/Dev/`; its demo maps were dropped.
 
 ---
 
