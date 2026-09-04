@@ -21,6 +21,11 @@ A persistent-world PvPvE extraction RPG built on Unreal Engine 5.8.
 | [FolderStructure.md](./FolderStructure.md) | Annotated Source + Content tree with purpose of every folder and naming conventions |
 | [GettingStarted.md](./GettingStarted.md) | Prerequisites, cloning, first compile, LFS setup, branch strategy, commit conventions |
 
+### Build inputs
+| Path | Description |
+|---|---|
+| [build/](./build/) | Vaelmoor landscape source — heightmaps (`.r16` / 16-bit PNG), province mask, POI transforms, and the import parameters for `L_Vaelmoor`. Binary files are stored via **Git LFS** (`git lfs install` + `git lfs pull`). |
+
 ---
 
 ## Game Overview

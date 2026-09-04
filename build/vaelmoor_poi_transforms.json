@@ -1,0 +1,77 @@
+{
+  "landscape": {
+    "heightmap": "vaelmoor_blockout_1009x2017.r16",
+    "resolution": [
+      1009,
+      2017
+    ],
+    "quad_size_m": 8,
+    "scale_uu": [
+      800,
+      800,
+      400
+    ],
+    "height_range_m": [
+      -1024,
+      1024
+    ],
+    "actual_range_m": [
+      -205,
+      993
+    ],
+    "extent_m": [
+      8064,
+      16128
+    ],
+    "sea_level_pixel": 32768,
+    "metres_per_pixel_step": 0.03125047684443427
+  },
+  "monuments": {
+    "Obsidian Shelf": [
+      403200,
+      946176
+    ],
+    "The Throat": [
+      592704,
+      1005312
+    ],
+    "Thornwake Barrow": [
+      532224,
+      623616
+    ],
+    "Kaltspine Watch": [
+      362880,
+      354816
+    ],
+    "Chapter House": [
+      419328,
+      1397760
+    ],
+    "Saltbrace Anchorage": [
+      451584,
+      1462272
+    ]
+  },
+  "vent_mouths": {
+    "Kaldrek": [
+      411264,
+      759091
+    ],
+    "Skarnmouth": [
+      469325,
+      849408
+    ],
+    "Drukvent": [
+      362880,
+      905318
+    ],
+    "Lowthroat": [
+      411264,
+      939725
+    ],
+    "caldera_centre": [
+      411264,
+      849408
+    ]
+  }
+}
